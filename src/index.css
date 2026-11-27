@@ -208,6 +208,10 @@ textarea{resize:vertical;min-height:70px}
 .form-error{color:#f3b5a7;font-size:.82rem;margin:.55rem 0 0}
 .button.whatsapp-button{border:1px solid #4d6b57;background:#192c21;color:#e7f3eb}
 .button.whatsapp-button:hover{background:#213a2c;text-decoration:underline}
+.floating-whatsapp{position:fixed;right:max(1rem,env(safe-area-inset-right));bottom:max(1rem,env(safe-area-inset-bottom));z-index:2;display:inline-flex;align-items:center;justify-content:center;gap:.55rem;min-height:48px;max-width:calc(100vw - 2rem);padding:.7rem 1rem;border:1px solid #126d3d;border-radius:100vw;background:#126d3d;color:#fff;font-size:.85rem;font-weight:600;line-height:1.2;text-decoration:none;box-shadow:0 5px 18px #100d0a55}
+.floating-whatsapp svg{width:1.35rem;height:1.35rem;stroke-width:1.8}
+.floating-whatsapp:hover{background:#0c572f}
+.floating-whatsapp:focus-visible{outline:3px solid #d7b88c;outline-offset:3px}
 .collection-controls-right{display:flex;align-items:center;gap:.65rem;flex-wrap:wrap}
 .search-field{display:flex;align-items:center;gap:.5rem;font-size:.77rem;white-space:nowrap}
 .search-field input{background:none;border:1px solid var(--line);border-radius:0;min-height:36px;padding:.25rem .65rem;width:min(240px,100%);font-size:.82rem}

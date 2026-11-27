@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {
+  buildWhatsAppUrl,
   categories,
   HomeListing,
   SurfaceView,
@@ -178,6 +179,20 @@ export const ReviewWebsiteView: React.FC<ReviewWebsiteViewProps> = ({
           </p>
         </div>
       </section>
+
+      <a
+        className="floating-whatsapp"
+        href={buildWhatsAppUrl()}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chat with MIRVAI on WhatsApp (opens in a new tab)"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M20.5 11.5a8.5 8.5 0 0 1-12.65 7.42L3.5 20l1.14-4.13A8.5 8.5 0 1 1 20.5 11.5Z" />
+          <path d="M8.7 8.4c-.5.5-.3 1.8 1 3.2 1.3 1.4 3 2.4 4 2l.8-.7-1.5-.9-.9.6a5.7 5.7 0 0 1-2.1-2l.5-.9-.9-1.5-.9.2Z" />
+        </svg>
+        <span>Chat on WhatsApp</span>
+      </a>
 
       <footer className="site-foot" id="contact">
         <div>
