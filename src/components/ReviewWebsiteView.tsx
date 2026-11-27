@@ -5,6 +5,7 @@ import {
   HomeListing,
   SurfaceView,
 } from '../lib/courtyardReview';
+import type { UsdRateState } from '../lib/listingPresentation';
 import { PropertyCard } from './PropertyCard';
 
 interface ReviewWebsiteViewProps {
@@ -13,6 +14,7 @@ interface ReviewWebsiteViewProps {
   webArea: string;
   webQuery: string;
   listings: HomeListing[];
+  usdRate: UsdRateState;
   onFilterChange: (categoryId: string) => void;
   onAreaChange: (area: string) => void;
   onQueryChange: (query: string) => void;
@@ -30,6 +32,7 @@ export const ReviewWebsiteView: React.FC<ReviewWebsiteViewProps> = ({
   webArea,
   webQuery,
   listings,
+  usdRate,
   onFilterChange,
   onAreaChange,
   onQueryChange,
@@ -168,10 +171,18 @@ export const ReviewWebsiteView: React.FC<ReviewWebsiteViewProps> = ({
                   isExpanded={Boolean(expandedIds[item.id])}
                   onToggleExpand={toggleDescription}
                   onOpenProperty={onOpenProperty}
+                  websiteRate={usdRate}
                 />
               ))
             )}
           </div>
+
+          {usdRate.rate && (
+            <p className="exchange-rate-note">
+              Converted prices are estimates. $1 = ₦{new Intl.NumberFormat('en-NG', { maximumFractionDigits: 2 }).format(usdRate.rate.ngnPerUsd)} · Updated {new Intl.DateTimeFormat('en-GB', { dateStyle: 'medium', timeZone: 'Africa/Lagos' }).format(usdRate.rate.updatedAt)}.{' '}
+              <a href="https://www.exchangerate-api.com" target="_blank" rel="noopener noreferrer">Rates By Exchange Rate API</a>
+            </p>
+          )}
 
           <p className="fineprint">
             Illustrative listings, images and prices for design review. No property is being offered

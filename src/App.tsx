@@ -29,6 +29,7 @@ import { ReviewAppView } from './components/ReviewAppView';
 import { ReviewTeamView } from './components/ReviewTeamView';
 import { LegalPagesView } from './components/LegalPagesView';
 import { ActiveModal, ReviewDialogs } from './components/ReviewDialogs';
+import { useUsdRate } from './hooks/useUsdRate';
 
 const ACCEPTED_PORTRAIT_TYPES = ['image/jpeg', 'image/png', 'image/webp', 'image/avif'];
 const MAX_PORTRAIT_BYTES = 8 * 1024 * 1024;
@@ -39,6 +40,7 @@ export function App() {
   const [view, setView] = useState<SurfaceView>(() =>
     resolveViewFromPath(window.location.pathname, window.location.hash)
   );
+  const usdRate = useUsdRate(view === 'website');
   const [appScreen, setAppScreen] = useState<AppScreen>('home');
   const [webFilter, setWebFilter] = useState<string>('all');
   const [webArea, setWebArea] = useState<string>('all');
@@ -452,6 +454,7 @@ export function App() {
             webArea={webArea}
             webQuery={webQuery}
             listings={webListings}
+            usdRate={usdRate}
             onFilterChange={setWebFilter}
             onAreaChange={setWebArea}
             onQueryChange={setWebQuery}
@@ -523,6 +526,8 @@ export function App() {
       <ReviewDialogs
         menuOpen={menuOpen}
         activeModal={activeModal}
+        showWebsitePrices={view === 'website'}
+        usdRate={usdRate}
         listings={state.listings}
         savedIds={state.saved}
         toastMessage={toastMessage}

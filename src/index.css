@@ -83,12 +83,16 @@ svg:not(.symbols){width:1.15em;height:1.15em;fill:none;stroke:currentColor;strok
 .luxury-card.is-compact .luxury-card-location{font-size:.68rem}
 .luxury-card-price{margin:.32rem 0 .48rem;color:#1b1815;font-size:1rem;font-weight:700;letter-spacing:-.01em;line-height:1.2}
 .luxury-card.is-compact .luxury-card-price{margin:.24rem 0 .36rem;font-size:.88rem}
+.luxury-card-price-secondary{display:block;margin-top:.22rem;color:#6a5b4e;font-size:.76rem;font-weight:500;line-height:1.25}
 .luxury-card-desc{margin-bottom:.62rem}
 .luxury-card.is-compact .luxury-card-desc{margin-bottom:.46rem}
 .luxury-card-desc p{margin:0;color:#5a524a;font-size:.74rem;font-weight:400;line-height:1.44}
 .luxury-card.is-compact .luxury-card-desc p{font-size:.68rem;line-height:1.36}
 .luxury-card-desc-link{display:inline;border:0;background:transparent;padding:0;color:#221f1b;font:inherit;font-weight:400;text-decoration:underline;text-underline-offset:.2em;text-decoration-thickness:1px;cursor:pointer}
 .luxury-card-desc-link:hover{color:#745330}
+.luxury-card-expanded{margin-top:.55rem}
+.luxury-card-expanded p+p{margin-top:.45rem}
+.luxury-card-expanded .luxury-card-features{margin-top:.6rem}
 .luxury-card-features{margin:0 0 .7rem;padding:.5rem 0 0;border-top:1px solid #ece5d8;list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.2rem .55rem;font-size:.7rem;font-weight:400;color:#4a433b}
 .luxury-card.is-compact .luxury-card-features{grid-template-columns:minmax(0,1fr);gap:.14rem;margin:0 0 .5rem;padding-top:.38rem;font-size:.62rem}
 .luxury-card-features li{display:flex;align-items:baseline;gap:.35rem;line-height:1.35}
@@ -101,6 +105,10 @@ svg:not(.symbols){width:1.15em;height:1.15em;fill:none;stroke:currentColor;strok
 .modal-features-list li::before{content:"•";color:var(--gold)}
 .image-placeholder{display:flex;align-items:center;justify-content:center;gap:.6rem;background:radial-gradient(ellipse at 74% 20%,#e6d5b9,#b4a28e);color:#3b3026;font-size:.84rem;letter-spacing:.07em}
 .fineprint{color:var(--muted);font-size:.75rem;margin-top:1rem}
+.exchange-rate-note{color:var(--dim);font-size:.72rem;line-height:1.45;margin-top:1rem}
+.exchange-rate-note a{color:inherit;text-decoration:underline;text-underline-offset:.16em}
+.modal-dual-price{margin:.8rem 0;display:grid;gap:.18rem}
+.modal-dual-price .secondary-price{color:var(--muted);font-size:.85rem}
 .empty{grid-column:1/-1;padding:1.4rem;border:1px dashed var(--line);color:var(--muted);font-size:.91rem}
 .ecosystem{background:#252019}
 .division-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}

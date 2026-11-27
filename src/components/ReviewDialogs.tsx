@@ -16,6 +16,8 @@ import {
   TIMELINE_OPTIONS,
   WHATSAPP_DISPLAY,
 } from '../lib/courtyardReview';
+import { listingPricePair } from '../lib/listingPresentation';
+import type { UsdRateState } from '../lib/listingPresentation';
 
 export type ActiveModal =
   | { type: 'property'; id: string }
@@ -27,6 +29,8 @@ export type ActiveModal =
 interface ReviewDialogsProps {
   menuOpen: boolean;
   activeModal: ActiveModal;
+  showWebsitePrices: boolean;
+  usdRate: UsdRateState;
   listings: HomeListing[];
   savedIds: string[];
   toastMessage: string | null;
@@ -50,6 +54,8 @@ interface ReviewDialogsProps {
 export const ReviewDialogs: React.FC<ReviewDialogsProps> = ({
   menuOpen,
   activeModal,
+  showWebsitePrices,
+  usdRate,
   listings,
   savedIds,
   toastMessage,
@@ -161,6 +167,7 @@ export const ReviewDialogs: React.FC<ReviewDialogsProps> = ({
     if (activeModal.type === 'property') {
       const item = homeById(activeModal.id, listings);
       if (!item) return null;
+      const prices = showWebsitePrices ? listingPricePair(item.price, item.currency, usdRate) : null;
       const isSaved = savedIds.includes(item.id);
       const gallery = resolveListingGallery(item);
       const video = parseVideoEmbed(item.videoUrl);
@@ -281,11 +288,19 @@ export const ReviewDialogs: React.FC<ReviewDialogsProps> = ({
             </div>
           )}
 
-          <p>
-            <strong>{formatListingPrice(item.price, item.currency)}</strong> ·{' '}
-            {item.status || 'Available'}
-            {item.beds ? ` · ${item.beds} bedrooms` : ''}
-          </p>
+          {prices ? (
+            <div className="modal-dual-price">
+              <strong>{prices.naira}</strong>
+              {prices.dollars && <span className="secondary-price">{prices.dollars}</span>}
+              <span>{item.status || 'Available'}{item.beds ? ` · ${item.beds} bedrooms` : ''}</span>
+            </div>
+          ) : (
+            <p>
+              <strong>{formatListingPrice(item.price, item.currency)}</strong> ·{' '}
+              {item.status || 'Available'}
+              {item.beds ? ` · ${item.beds} bedrooms` : ''}
+            </p>
+          )}
           <p>{item.description}</p>
           {item.features && item.features.length > 0 && (
             <ul className="modal-features-list" aria-label="Property features">
