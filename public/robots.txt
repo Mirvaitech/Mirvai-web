@@ -1,0 +1,65 @@
+# Mirvai Group Robots & AI Crawler Directives
+# Welcoming search engines, web crawlers, and modern AI agents (ChatGPT, Claude, Perplexity, Gemini, Applebot)
+
+User-agent: *
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /api/properties
+Allow: /api/properties/*
+Disallow: /admin
+
+# Dedicated AI Agents & Crawlers
+User-agent: GPTBot
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /api/properties
+
+User-agent: ChatGPT-User
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+
+User-agent: ClaudeBot
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+
+User-agent: Claude-Web
+Allow: /
+Allow: /llms.txt
+
+User-agent: PerplexityBot
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+
+User-agent: Google-Extended
+Allow: /
+Allow: /llms.txt
+
+User-agent: Applebot-Extended
+Allow: /
+Allow: /llms.txt
+
+User-agent: Googlebot
+Allow: /
+Allow: /favicon.ico
+Allow: /favicon.svg
+Allow: /favicon*.png
+Allow: /apple-touch-icon.png
+Disallow: /admin
+
+User-agent: Googlebot-Image
+Allow: /
+Allow: /favicon*
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.svg$
+Allow: /*.webp$
+
+Sitemap: https://mirvaigroup.com/sitemap.xml
+Sitemap: https://mirvaigroup.com/llms.txt
+
