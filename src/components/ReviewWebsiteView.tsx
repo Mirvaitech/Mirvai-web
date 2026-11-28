@@ -184,10 +184,6 @@ export const ReviewWebsiteView: React.FC<ReviewWebsiteViewProps> = ({
             </p>
           )}
 
-          <p className="fineprint">
-            Illustrative listings, images and prices for design review. No property is being offered
-            through this preview.
-          </p>
         </div>
       </section>
 
@@ -256,7 +252,6 @@ export const ReviewWebsiteView: React.FC<ReviewWebsiteViewProps> = ({
             Delete Account &amp; Data
           </a>
         </div>
-        <small>Design review · No live bookings, messages, payments or uploads.</small>
       </footer>
     </div>
   );
